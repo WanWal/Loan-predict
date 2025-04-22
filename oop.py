@@ -11,8 +11,8 @@ class LoanApprovalModel:
                 self.encoders = data['encoders']  # Encoder untuk data kategorikal
         except FileNotFoundError:
             raise FileNotFoundError(f"File model tidak ditemukan di path: {model_path}")
-        except Exception as e:
-            raise ValueError(f"Terjadi kesalahan saat memuat model: {e}")
+        # except Exception as e:
+            #raise ValueError(f"Terjadi kesalahan saat memuat model: {e}")
 
     def predict(self, input_data: dict):
         # Mengubah input_data menjadi DataFrame
