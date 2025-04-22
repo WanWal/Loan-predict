@@ -51,3 +51,46 @@ with st.form(key='loan_form'):
             st.success('Status Pinjaman: **Disetujui**' if result == 1 else 'Status Pinjaman: **Ditolak**')
         except Exception as e:
             st.error(f"Terjadi kesalahan: {e}")
+if st.button("Test Case 1 - High Credibility"):
+    input_dict = {
+        'person_age': 30,
+        'person_gender': 'male',
+        'person_education': 'Master',
+        'person_income': 85000,
+        'person_emp_exp': 5,
+        'person_home_ownership': 'MORTGAGE',
+        'loan_amnt': 10000,
+        'loan_intent': 'DEBTCONSOLIDATION',
+        'loan_int_rate': 8.5,
+        'loan_percent_income': 0.12,
+        'cb_person_cred_hist_length': 8,
+        'credit_score': 750,
+        'previous_loan_defaults_on_file': 0
+    }
+
+    df_input = pd.DataFrame([input_dict])
+    prediction = predict_loan_approval(df_input)
+
+    st.write("Prediction:", "Disetujui" if prediction[0] == 1 else "Ditolak")
+
+if st.button("Test Case 2 - High Risk Applicant"):
+    input_dict = {
+        'person_age': 22,
+        'person_gender': 'female',
+        'person_education': 'High School',
+        'person_income': 25000,
+        'person_emp_exp': 1,
+        'person_home_ownership': 'RENT',
+        'loan_amnt': 15000,
+        'loan_intent': 'PERSONAL',
+        'loan_int_rate': 16.5,
+        'loan_percent_income': 0.6,
+        'cb_person_cred_hist_length': 2,
+        'credit_score': 450,
+        'previous_loan_defaults_on_file': 1
+    }
+
+    df_input = pd.DataFrame([input_dict])
+    prediction = predict_loan_approval(df_input)
+
+    st.write("Prediction:", "Disetujui" if prediction[0] == 1 else "Ditolak")
