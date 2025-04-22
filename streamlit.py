@@ -16,7 +16,8 @@ with st.form(key='loan_form'):
     emp_exp = st.number_input('Pengalaman Kerja (tahun)', min_value=0)
     home = st.selectbox('Status Tempat Tinggal', ['RENT', 'OWN', 'MORTGAGE', 'OTHER'])
     loan_amnt = st.number_input('Jumlah Pinjaman', min_value=0)
-    intent = st.selectbox('Tujuan Pinjaman', ['debt_consolidation', 'home_improvement', 'credit_card', 'other'])
+    intent = st.selectbox('Tujuan Pinjaman', ['PERSONAL', 'EDUCATION', 'MEDICAL', 'VENTURE', 'HOMEIMPROVEMENT',
+       'DEBTCONSOLIDATION'])
     interest = st.number_input('Bunga Pinjaman (%)', min_value=0.0)
     percent_income = st.number_input('Persen Pendapatan untuk Pinjaman', min_value=0.0)
     cb_length = st.number_input('Lama Riwayat Kredit', min_value=0)
